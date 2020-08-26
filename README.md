@@ -16,7 +16,7 @@ For each test case, output a single decimal number, indicating the smallest poss
 
 ## How to run the program
 
-Ensure that you have the **g++** compiler installed on your system. Open a command prompt and navigate to the directory where the program files are extracted. Enter the **make** command to build the program. Place the input to the program in a text file in the format described above (**sample_input.txt** for example). Then enter the following command and the shortest time to reach the target from the origin will be shown on the command prompt.
+First, build the program on your computer. Place the input to the program in a text file in the format described above (**sample_input.txt** for example). Then enter the following command and the shortest time to reach the target from the origin will be shown on the command prompt.
 
 ```
 cat sample_input.txt | ./solution_exe
