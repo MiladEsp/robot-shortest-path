@@ -39,11 +39,11 @@ int main() {
 
     unsigned int node_set_count = solution.nodeSetCount();
 
-    Graph *graph_set = new Graph [node_set_count];
+    Graph* graph_set = new Graph[node_set_count];
 
     solution.parseInput(graph_set);
 
-    for (unsigned int i = 0;i < node_set_count;i++) {
+    for (unsigned int i = 0; i < node_set_count; i++) {
         graph_set[i].shortestTime();
     }
 

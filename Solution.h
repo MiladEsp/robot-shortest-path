@@ -8,21 +8,22 @@
 
 #pragma once
 
-#include <string>
 #include <sstream>
+#include <string>
+
 #include "Graph.h"
 
 class Solution {
-public:
+   public:
     Solution();
     ~Solution();
 
-    void readInput(); // Reads the user input
-    unsigned int nodeSetCount(); // Counts how many set of nodes were input by the user
-    void parseInput(Graph *graph_set); // Parses the input and adds nodes with proper x, y, penalty values to the graph
+    void readInput();                   // Reads the user input
+    unsigned int nodeSetCount();        // Counts how many set of nodes were input by the user
+    void parseInput(Graph* graph_set);  // Parses the input and adds nodes with proper x, y, penalty values to the graph
 
-private:
+   private:
     std::string input;
 
-    std::string splitString(std::string &s);
+    std::string splitString(std::string& s);
 };

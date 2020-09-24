@@ -10,13 +10,13 @@
 
 // Constructor for the Graph class
 Graph::Graph() {
-    addNode(ORIGIN_X, ORIGIN_Y, 0); // Adds origin as the first node to the graph
+    addNode(ORIGIN_X, ORIGIN_Y, 0);  // Adds origin as the first node to the graph
     v = 1;
 }
 
-// Destructor for the Graph class 
-Graph::~Graph() { 
-    delete[] adj; // Frees the memory allocated to the adjacency list on the heap
+// Destructor for the Graph class
+Graph::~Graph() {
+    delete[] adj;  // Frees the memory allocated to the adjacency list on the heap
 }
 
 // A constructor for the GraphNode class
@@ -48,7 +48,7 @@ float Graph::edgeWeight(int start_node, int end_node) {
     // Calculates the total penalty incured by skipping all the nodes in between the start and the end
     auto sumPenalties = [&](int start, int end) {
         int total_penalty = 0;
-        for (int i = start+1;i < end; i++) {
+        for (int i = start + 1; i < end; i++) {
             total_penalty += nodes[i].penalty;
         }
         return total_penalty;
@@ -56,7 +56,7 @@ float Graph::edgeWeight(int start_node, int end_node) {
 
     // Calculates the time needed to travel from the start node to the end
     auto timeToTravel = [&](int start, int end) {
-        return std::sqrt(std::pow((nodes[end].x - nodes[start].x), 2) + std::pow((nodes[end].y - nodes[start].y), 2)) / OTTO_SPEED;
+        return std::sqrt(std::pow((nodes[end].x - nodes[start].x), 2) + std::pow((nodes[end].y - nodes[start].y), 2)) / ROBOT_SPEED;
     };
 
     // If the two nodes are immediate nodes, the weight will be the time to travel from the start node to the end node plus the wait time at the end node
@@ -77,7 +77,7 @@ float Graph::edgeWeight(int start_node, int end_node) {
 */
 void Graph::addEdge(int start_node, int end_node) {
     float weight = edgeWeight(start_node, end_node);
-   
+
     adj[start_node].push_back(std::make_pair(end_node, weight));
 }
 
@@ -86,10 +86,10 @@ void Graph::addEdge(int start_node, int end_node) {
     The problem is formulated as a directed graph where every node is connected to all the nodes after it
 */
 void Graph::constructAdjList() {
-    adj = new std::list <std::pair<int, float>>[v];
+    adj = new std::list<std::pair<int, float>>[v];
 
-    for (int i = 0;i < v;i++) {
-        for (int j = i + 1;j < v;j++) {
+    for (int i = 0; i < v; i++) {
+        for (int j = i + 1; j < v; j++) {
             addEdge(i, j);
         }
     }
@@ -117,7 +117,6 @@ void Graph::shortestTime() {
 
     // Loop until all shortest times are finalized at which point the bucket will be an empty set
     while (bucket.size()) {
-        
         // First node in set is the shortest time node. Extract it from the set
         std::pair<float, int> tmp = *(bucket.begin());
         bucket.erase(bucket.begin());
@@ -129,11 +128,10 @@ void Graph::shortestTime() {
         std::list<std::pair<int, float>>::iterator it;
         for (it = adj[start_node].begin(); it != adj[start_node].end(); it++) {
             int end_node = it->first;
-            float weight = it->second; // Weight of the edge from the start_node to end_node
+            float weight = it->second;  // Weight of the edge from the start_node to end_node
 
             // Check if there is shorter path to v through u
             if (shortest_time[end_node] > shortest_time[start_node] + weight) {
-
                 /**
                     If shortest_time[v] is not INFINITY, it means that it already is
                     in the set bucket, so remove it and insert it again with an updated lesser time
