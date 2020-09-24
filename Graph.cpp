@@ -56,7 +56,7 @@ float Graph::edgeWeight(int start_node, int end_node) {
 
     // Calculates the time needed to travel from the start node to the end
     auto timeToTravel = [&](int start, int end) {
-        return std::sqrt(std::pow((nodes[end].x - nodes[start].x), 2) + std::pow((nodes[end].y - nodes[start].y), 2)) / OTTO_SPEED;
+        return std::sqrt(std::pow((nodes[end].x - nodes[start].x), 2) + std::pow((nodes[end].y - nodes[start].y), 2)) / ROBOT_SPEED;
     };
 
     // If the two nodes are immediate nodes, the weight will be the time to travel from the start node to the end node plus the wait time at the end node
