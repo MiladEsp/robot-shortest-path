@@ -18,7 +18,7 @@
 #define ORIGIN_Y 0
 #define TARGET_X 100
 #define TARGET_Y 100
-#define OTTO_SPEED 2
+#define ROBOT_SPEED 2
 #define NODE_WAIT_TIME 10
 
 class Graph{
