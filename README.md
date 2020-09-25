@@ -16,14 +16,14 @@ For each test case, output a single decimal number, indicating the smallest poss
 
 ## How to run the program
 
-First, build the program on your computer. Place the input to the program in a text file in the format described above (**sample_input.txt** for example). Then enter the following command and the shortest time to reach the target from the origin will be shown on the command prompt.
+First, go to the **build** folder and run the command **cmake ..** to have CMake create the proper makefile for your system. Then, run the **make** command to build the program on your computer. Place the input to the program in a text file in the format described above (**sample_input.txt** for example) and put it in the **resources** folder. Then enter the following command and the shortest time to reach the target from the origin will be shown on the command prompt.
 
 ```
-cat sample_input.txt | ./solution_exe
+cat ../resources/sample_input.txt | ./shortest_path
 ```
 
 If you want to save the result to a text file, enter the following command.
 
 ```
-cat sample_input.txt | ./solution_exe | tee sample_output.txt
+cat ../resources/sample_input.txt | ./shortest_path | tee sample_output.txt
 ```
